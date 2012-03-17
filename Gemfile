@@ -29,6 +29,7 @@ group :development, :test do
   gem 'mongoid-rspec'
   gem 'pry'
   gem 'pry-doc'
+  gem 'pry-nav'
   gem 'rspec-instafail'
   gem 'rspec-rails'
 end
