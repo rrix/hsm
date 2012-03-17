@@ -10,12 +10,6 @@ FactoryGirl.define do
   
   factory :role do
   end
-  
-  factory :skill do
-  end
-  
-  factory :users_skill do
-  end
 
   factory :user_action do
   end
