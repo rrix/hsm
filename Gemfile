@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'hsm_tools', :path => '../hsm_tools'
+gem 'hsm_tools',  :path => '../hsm_tools'
+gem 'hsm_skills', :path => '../hsm_skills'
 
 gem 'bluecloth'
 gem 'cancan'

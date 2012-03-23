@@ -1,4 +1,10 @@
 PATH
+  remote: ../hsm_skills
+  specs:
+    hsm_skills (0.0.1)
+      rails (~> 3.2.2)
+
+PATH
   remote: ../hsm_tools
   specs:
     hsm_tools (0.0.1)
@@ -213,6 +219,7 @@ DEPENDENCIES
   factory_girl_rails
   guard-livereload
   guard-rspec
+  hsm_skills!
   hsm_tools!
   jquery-rails
   launchy

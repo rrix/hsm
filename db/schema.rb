@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316224116) do
+ActiveRecord::Schema.define(:version => 20120317093450) do
 
   create_table "permissions", :force => true do |t|
     t.string   "name"
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(:version => 20120316224116) do
     t.string   "name"
     t.text     "description"
     t.string   "more_info_url"
+    t.string   "role_required_to_grant"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
-    t.string   "role_required_to_grant"
   end
 
   create_table "tool_categories", :force => true do |t|
