@@ -13,8 +13,6 @@ gem 'mongoid'
 gem 'paperclip', "~> 2.4"
 gem 'pg'
 gem 'rack-ssl-enforcer'
-gem 'rails-settings-cached'
-gem 'rails-settings'
 gem 'will_paginate', '~> 3.0'
 
 # Gems used only for assets and not required

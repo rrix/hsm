@@ -1,5 +1,3 @@
-Settings.defaults[:mail_from_address] = 'hsm@localhost'
-
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
@@ -7,20 +5,17 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   # We check if the table exists since bootstrapping might not have the settings available yet.
-  if ActiveRecord::Base.connection.tables.include?('settings')
-      config.mailer_sender = Settings.mail_from_address
-  else
-      config.mailer_sender = 'hsm@localhost'
-  end
+  config.mailer_sender = "hsm@localhost"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
+  config.apply_schema = false
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require 'devise/orm/mongoid'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
