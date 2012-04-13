@@ -1,4 +1,7 @@
-class UserAction < ActiveRecord::Base
+class UserAction
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
   belongs_to :user
 
   def object= new_object
@@ -18,6 +21,4 @@ class UserAction < ActiveRecord::Base
   def type
     event.to_s + " " + obj_type.to_s 
   end
-
-  self.per_page = 10
 end
