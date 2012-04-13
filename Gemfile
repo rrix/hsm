@@ -4,10 +4,12 @@ gem 'hsm_tools',  :path => '../hsm_tools'
 gem 'hsm_skills', :path => '../hsm_skills'
 
 gem 'bluecloth'
+gem 'bson_ext'
 gem 'cancan'
 gem 'devise'
 gem 'dynamic_form'
 gem 'jquery-rails'
+gem 'mongoid'
 gem 'paperclip', "~> 2.4"
 gem 'pg'
 gem 'rack-ssl-enforcer'
@@ -25,6 +27,7 @@ group :development, :test do
   gem 'cover_me', '>= 1.2.0'
   gem 'guard-livereload'
   gem 'guard-rspec'
+  gem 'mongoid-rspec'
   gem 'pry'
   gem 'pry-doc'
   gem 'rspec-rails'
@@ -40,9 +43,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'shoulda'
-end
-
-group :production, :staging do#, :ci do
-  gem 'thin'
 end
 
