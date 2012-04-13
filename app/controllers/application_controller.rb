@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_space_actions
-    UserAction.page(params[:site_page] ).order('created_at DESC')
+    UserAction.page(pagination_hash(params[:site_page]) )
   end
 
   def get_user_log
-    UserAction.where("obj_type = 'User'").page(params[:users_page]).order('created_at DESC')
+    UserAction.where(obj_type: 'User').page(pagination_hash.merge(params[:users_page]))
   end
 
   def log_action(event, object)
@@ -43,6 +43,14 @@ class ApplicationController < ActionController::Base
 
       @plugin_menu_items << p
     end
+  end
+
+  def pagination_hash
+    {
+      page:     (params[:page]     or 1),
+      per_page: (params[:per_page] or 1),
+      order:    "updated_at DESC"
+    }
   end
 
 end
