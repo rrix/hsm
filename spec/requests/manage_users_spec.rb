@@ -144,8 +144,9 @@ describe 'Managing Users' do
 
     before do
       @user   = Factory.create :user,  :skill_summary  => "I do awesome stuff so hard"
-      @skill  = Factory.create :skill, :name           => "Doing Awesome Stuff"
-      @skill.assign_to @user, @user, 5
+      # TODO: This needs to be moved to hsm_skills
+      # @skill  = Factory.create :skill, :name           => "Doing Awesome Stuff"
+      # @skill.assign_to @user, @user, 5
       @user.save
     end
 
@@ -180,6 +181,7 @@ describe 'Managing Users' do
       end
 
       it 'should have links to add skills' do
+       fail "This needs to be moved to hsm_skills"
        visit user_path @user
 
        page.should have_content "Add skill"
