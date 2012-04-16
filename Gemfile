@@ -14,7 +14,7 @@ gem 'paperclip', "~> 2.4"
 gem 'pg'
 gem 'rack-ssl-enforcer'
 gem 'rails', '~> 3.2'
-gem 'will_paginate', '~> 3.0'
+gem 'mongoid-app_settings'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,7 +29,7 @@ group :development, :test do
   gem 'mongoid-rspec'
   gem 'pry'
   gem 'pry-doc'
-  # gem 'rspec-instafail'
+  gem 'rspec-instafail'
   gem 'rspec-rails'
 end
 
