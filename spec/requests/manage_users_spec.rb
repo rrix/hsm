@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Managing Users' do
 
   before do
-      @role = Factory.create :role, :name => "User"
+    @role = Factory.create :role, :name => "User"
   end
   
   describe 'User sign up' do
@@ -64,7 +64,7 @@ describe 'Managing Users' do
     before do
       @user = Factory.create :user, :first_name => 'Phillip',
                                     :last_name  => 'Fry',
-                                    :role => @role
+                                    :role       => @role
 
       login_as @user
     end
@@ -171,7 +171,7 @@ describe 'Managing Users' do
 
         page.should have_content @user.full_name
         page.should have_content 'Biography'
-        page.should have_content 'Skills'
+        # page.should have_content 'Skills'
       end
 
       it 'should have links to edit info' do
