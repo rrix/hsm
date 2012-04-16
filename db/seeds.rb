@@ -5,10 +5,10 @@ puts 'Setting up permissions.'
 Rake::Task['db:permissions'].invoke
 
 puts 'Setting up administrator role.'
-adminRole = Role.new :name => 'Administrator',
-                :description => 'Administrators have absolute power and inherently have all roles',
-                :permissions => [Permission.where(:name => 'administrate').first]
-                
+adminRole = Role.new name:        'Administrator',
+                     description: 'Administrators have absolute power and inherently have all roles',
+                     permissions: [Permission.where(name: 'administrate').first]
+
 adminRole.save
 puts "Role: #{ adminRole.name } created!"
 
@@ -16,7 +16,7 @@ puts 'Setting up user role.'
 role = Role.new :name => 'User',
                 :description => 'Users may login',
                 :permissions => [Permission.where(:name => 'login').first]
-                
+
 role.save
 puts "Role: #{ role.name } created!"
 
