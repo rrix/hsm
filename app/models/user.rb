@@ -13,46 +13,57 @@ class User
   has_one  :role
   has_many :user_actions
 
+  # User fields
+  field :first_name,    type: String, null: false
+  field :last_name,     type: String, null: false
+  field :skill_summary, type: String, null: false
+
   # Include default devise modules
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :confirmable,
+         :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
 
   ## Database authenticatable
-  field :email,              :type => String, :null => false
-  field :encrypted_password, :type => String, :null => false
+  field :email,              type: String, null: false
+  field :encrypted_password, type: String, null: false
 
   ## Recoverable
-  field :reset_password_token,   :type => String
-  field :reset_password_sent_at, :type => Time
+  field :reset_password_token,   type: String
+  field :reset_password_sent_at, type: Time
 
   ## Rememberable
-  field :remember_created_at, :type => Time
+  field :remember_created_at, type: Time
 
   ## Trackable
-  field :sign_in_count,      :type => Integer
-  field :current_sign_in_at, :type => Time
-  field :last_sign_in_at,    :type => Time
-  field :current_sign_in_ip, :type => String
-  field :last_sign_in_ip,    :type => String
+  field :sign_in_count,      type: Integer
+  field :current_sign_in_at, type: Time
+  field :last_sign_in_at,    type: Time
+  field :current_sign_in_ip, type: String
+  field :last_sign_in_ip,    type: String
 
   ## Encryptable
-  # field :password_salt, :type => String
+  # field :password_salt, type: String
 
   ## Confirmable
-  field :confirmation_token,   :type => String
-  field :confirmed_at,         :type => Time
-  field :confirmation_sent_at, :type => Time
-  field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  field :confirmation_token,   type: String
+  field :confirmed_at,         type: Time
+  field :confirmation_sent_at, type: Time
+  field :unconfirmed_email,    type: String # Only if using reconfirmable
 
   ## Lockable
-  # field :failed_attempts, :type => Integer # Only if lock strategy is :failed_attempts
-  # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
-  # field :locked_at,       :type => Time
+  # field :failed_attempts, type: Integer # Only if lock strategy is :failed_attempts
+  # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
+  # field :locked_at,       type: Time
 
   # Token authenticatable
-  field :authentication_token, :type => String
+  field :authentication_token, type: String
   
   # Validations
-  validates_uniqueness_of :email,     :case_sensitive => false
+  validates_uniqueness_of :email,     case_sensitive: false
   validates_presence_of   :first_name
   validates_presence_of   :last_name
 
@@ -63,9 +74,9 @@ class User
     "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
   end
 
-  before_validation(:on => :create) do
+  before_validation(on: :create) do
     if not self.role
-        self.role = Role.where(:name => "User").first
+        self.role = Role.where(name: "User").first
     end
   end
 
