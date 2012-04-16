@@ -97,22 +97,22 @@ class User
 
 private
 
-  # # Implements magic such as @user.is_an_admin_or_superhero?
-  # # and @user.can_fly?
-  # def method_missing(method_id, *args)
-  #   if match = matches_dynamic_role_check?(method_id)
-  #       tokenize_roles(match.captures.first).each do |check|
-  #           return true if role and role.name.downcase == check
-  #       end
-  #       return false
-  #   elsif match = matches_dynamic_perm_check?(method_id)
-  #       return true if has_permission?("administrate")
-  #       return true if role and permissions.find_by_name(match.captures.first)
-  #       return false
-  #   else
-  #       super
-  #   end
-  # end
+  # Implements magic such as @user.is_an_admin_or_superhero?
+  # and @user.can_fly?
+  def method_missing(method_id, *args)
+    if match = matches_dynamic_role_check?(method_id)
+        tokenize_roles(match.captures.first).each do |check|
+            return true if role and role.name.downcase == check
+        end
+        return false
+    elsif match = matches_dynamic_perm_check?(method_id)
+        return true if has_permission?("administrate")
+        return true if role and permissions.find_by_name(match.captures.first)
+        return false
+    else
+        super
+    end
+  end
 
   private
 
