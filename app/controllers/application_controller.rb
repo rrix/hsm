@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_space_actions
-    UserAction.page(pagination_hash(params[:site_page]) )
+    UserAction.limit(10).all
   end
 
   def get_user_log
-    UserAction.where(obj_type: 'User').page(pagination_hash.merge(params[:users_page]))
+    UserAction.where(obj_type: 'User').limit(10).all
   end
 
   def log_action(event, object)
