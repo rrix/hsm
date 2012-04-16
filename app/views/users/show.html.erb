@@ -12,16 +12,17 @@
     <%= image_tag @user.gravatar_url, :class => 'pull-left'%>
     <p><%= @user.skill_summary %>
   </div>
-  <div class='span8'>
-    <h2>Skills</h2>
-    <% if current_user = @user %>
-      <%= link_to 'Add skill...', new_users_skill_path %>
-    <% end %>
+  <% # TODO FIXME port to plugin architecture %>
+  <% # <div class='span8'> %>
+    <% # <h2>Skills</h2> %>
+    <% # <% if current_user = @user %>
+      <% # <%= link_to 'Add skill...', new_users_skill_path %>
+    <% # <% end %>
 
-    <% @user.skills.each do |skill| %>
-      <div class='actions'>
-        <%= link_to skill.name, skill_path(skill) %>
-      </div>
-    <% end %>
+    <% # <% @user.skills.each do |skill| %>
+      <% # <div class='actions'> %>
+        <% # <%= link_to skill.name, skill_path(skill) %>
+      <% # </div> %>
+    <% # <% end %>
   </div>
 </div>

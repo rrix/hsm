@@ -4,6 +4,11 @@ class UserAction
 
   belongs_to :user
 
+  field :user_id,  type: Integer
+  field :obj_type, type: String
+  field :obj_id,   type: String
+  field :event,    type: String
+
   def object= new_object
     self.obj_type = new_object.class.to_s
     self.obj_id   = new_object.id

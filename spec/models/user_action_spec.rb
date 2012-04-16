@@ -4,10 +4,10 @@ describe UserAction do
   let (:user) { Factory :user }
 
   before do
-    @action = UserAction.new user: user, event: 'created', object: user
-
-    @action.object = tool
-    @action.save
+    pending "Needs to be rewritten without tool object"
+    # TODO: Move tool actions in to hsm_tools
+    action.object = tool
+    action.save
   end
 
   it 'should have a type' do
