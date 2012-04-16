@@ -1,8 +1,8 @@
 class Role
   include Mongoid::Document
 
-  belongs_to :user 
-  has_many   :users
+  has_many :users
+  has_many :permissions
 
   field :name,        :type => String
   field :description, :type => String
