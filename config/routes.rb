@@ -7,16 +7,12 @@ Hsm::Application.routes.draw do
     resource :settings
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users #, :controllers => {:registrations => "registrations"}
 
   match 'users',     :to => 'users#index'
   match 'users/:id', :to => 'users#show', :as => "user"
 
   resource :home
-  resources :tools
-  resources :tool_categories
-  resources :users_skills
-  resources :skills
 
   root :to => 'home#index'
 
