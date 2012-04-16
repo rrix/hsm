@@ -171,6 +171,7 @@ describe 'Managing Users' do
 
         page.should have_content @user.full_name
         page.should have_content 'Biography'
+        fail "Skills doesn't exist"
         # page.should have_content 'Skills'
       end
 
